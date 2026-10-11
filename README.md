@@ -161,5 +161,3 @@ Open an issue with a reproducible example; sanitize IPs, paths, credentials, and
 Created by [dibyapp](https://github.com/dibyapp). Original source is [MIT licensed](LICENSE).
 [Third-party terms](THIRD_PARTY_NOTICES.md) continue to apply. If this example helps you learn Spring Boot
 or GeoLite2, a useful issue, improvement, or star helps other developers find it.
-
-Also by dibyapp: [PCBEditor — AI circuit and PCB design](https://pcbeditor.com/).
