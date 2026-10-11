@@ -1,0 +1,29 @@
+name: Java API checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  api-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Test (Linux and macOS)
+        if: runner.os != 'Windows'
+        run: chmod +x mvnw && ./mvnw -B -ntp test
+      - name: Test (Windows)
+        if: runner.os == 'Windows'
+        run: .\mvnw.cmd -B -ntp test

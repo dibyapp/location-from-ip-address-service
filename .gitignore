@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Local data and secrets
+.env
+.env.*
+*.mmdb
+data/
+application-local.properties
